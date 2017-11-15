@@ -1,28 +1,14 @@
 <?php 
 session_start();
-
-if(isset($_SESSION['user_id']) ) {
-	header("Location: index.php");
-}
-
-define('TITLE', 'Login');
-include 'includes/header.php';
 include 'includes/functions.php';
-require 'db.php';
-
+checkSession();
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
-
-	$records = $conn->prepare('SELECT user_id,email,password FROM users WHERE email=:email');
-	$records->bindParam(':email', $_POST['email']);
-	$records->execute();
-	$results = $records->fetch(PDO::FETCH_ASSOC);
-
 	$message = '';
-
+	$results = checkLogin();
 	if(count($results) > 0 && password_verify($_POST['password'], $results['password']) ){
 		$_SESSION['user_id'] = $results['user_id'];
-		Redirect('http://localhost/login_script/index.php', false);
+		Redirect('index.php', false);
 	} else {
 		$message = 'Sorry, email and password do not match. Please try again.';
 	}
@@ -30,6 +16,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 }
 
 
+define('TITLE', 'Login');
+include 'includes/header.php';
 ?>
 <div id="logform">
 	<h1>Login</h1>
