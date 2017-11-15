@@ -5,8 +5,8 @@
 Login systems take some time to set up. This repo can be a good start when building a project that requires a login system.
 
 ## Set Up
-1. Run the /createtables.sql contents in your database. This will create the database and the needed table.
-2. Make sure the configurations are correct on the /db.php file for your database connection.
+1. Run the core/createtables.sql contents in your database. This will create the database and the needed table.
+2. Make sure the configurations are correct on the core/db.php file for your database connection.
 3. Visit the /register.php page and make an account. 
 4. If you are redirected back to the index page and the page welcomes you with your fullname and username, all is working as it should. 
 
