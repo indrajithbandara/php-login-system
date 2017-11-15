@@ -1,6 +1,6 @@
 CREATE DATABASE login;
 
-CREATE TABLE users(
+CREATE TABLE login.users(
 	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	user_name VARCHAR(255) NULL,
 	first_name VARCHAR(255) NULL,

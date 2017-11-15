@@ -1,3 +1,0 @@
-Capture user when they register
-Start session for user
-redirect them to the home page
